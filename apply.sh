@@ -46,7 +46,7 @@ done
 WORKFLOW=".trellis/workflow.md"
 if [ -f "$WORKFLOW" ]; then
   if ! grep -q "Research knowledge extraction" "$WORKFLOW" 2>/dev/null; then
-    sed -i '/Update the docs under.*accordingly/a\\n**Research knowledge extraction** `[required when task had research]`:\nResearch reports in `{task}/research/` get archived with the task — extract findings that are valid beyond this task:\n- **Dependency facts** → update or create `spec/deps/<dep>.md` capability sheets (source-verified, file:line citations)\n- **Reference project insights** → append to `spec/guides/reference-analysis/<domain>.md` (优缺点 + 借鉴方案)\n- **Design principles** → create `spec/guides/<principle>.md` if broadly applicable' "$WORKFLOW"
+    sed -i '/Update the docs under.*accordingly/a\\n**Research knowledge extraction** `[required when task had research]`:\nResearch reports in `{task}/research/` get archived with the task — extract findings that are valid beyond this task:\n- **Dependency facts** → update or create `spec/deps/<dep>.md` capability sheets (source-verified, file:line citations)\n- **Reference project insights** → append to `spec/guides/reference-analysis/<domain>.md` (优缺点 + 借鉴方案)\n- **Own project status** → update the current-status section in relevant `reference-analysis/<domain>.md` to reflect newly implemented capabilities\n- **Design principles** → create `spec/guides/<principle>.md` if broadly applicable' "$WORKFLOW"
     echo "  + Patched $WORKFLOW: research knowledge extraction in Phase 3.3"
   fi
 fi
