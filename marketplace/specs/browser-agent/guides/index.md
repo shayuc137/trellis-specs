@@ -6,6 +6,7 @@
 
 | Guide | Purpose | When to Use |
 |-------|---------|-------------|
+| [Reference Analysis](./reference-analysis/index.md) | 参考项目的优缺点按能力域组织，供 brainstorm 和实现参考 | Any task with reference projects |
 | [Proactive State Feedback](./proactive-state-feedback.md) | Operations proactively report state changes to the agent | Designing any command, route, or action |
 | [Dependency Sheets](../deps/index.md) | Source-verified capability facts for direct deps | Any task touching dependency behavior |
 

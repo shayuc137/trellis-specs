@@ -41,18 +41,30 @@ for target in "${BRAINSTORM_TARGETS[@]}"; do
   fi
 done
 
-# --- 2. Patch workflow.md: dependency knowledge extraction ---
+# --- 2. Patch workflow.md: research knowledge extraction ---
 
 WORKFLOW=".trellis/workflow.md"
 if [ -f "$WORKFLOW" ]; then
-  if ! grep -q "Dependency knowledge extraction" "$WORKFLOW" 2>/dev/null; then
-    sed -i '/Update the docs under.*accordingly/a\\n**Dependency knowledge extraction** `[required when task touched deps]`:\nIf this task'\''s research discovered facts about direct dependencies (packages in `pyproject.toml` / `package.json`), check whether `.trellis/spec/deps/<dep>.md` exists and is current. Update or create the capability sheet with source-verified facts (file path + line number). Research reports in `{task}/research/` get archived — deps specs persist.' "$WORKFLOW"
-    echo "  + Patched $WORKFLOW: dependency knowledge extraction in Phase 3.3"
+  if ! grep -q "Research knowledge extraction" "$WORKFLOW" 2>/dev/null; then
+    sed -i '/Update the docs under.*accordingly/a\\n**Research knowledge extraction** `[required when task had research]`:\nResearch reports in `{task}/research/` get archived with the task — extract findings that are valid beyond this task:\n- **Dependency facts** → update or create `spec/deps/<dep>.md` capability sheets (source-verified, file:line citations)\n- **Reference project insights** → append to `spec/guides/reference-analysis/<domain>.md` (优缺点 + 借鉴方案)\n- **Design principles** → create `spec/guides/<principle>.md` if broadly applicable' "$WORKFLOW"
+    echo "  + Patched $WORKFLOW: research knowledge extraction in Phase 3.3"
   fi
 fi
+
+# --- 3. Patch brainstorm: reference-analysis check ---
+
+for target in "${BRAINSTORM_TARGETS[@]}"; do
+  if [ -f "$target" ]; then
+    if ! grep -q "reference-analysis" "$target" 2>/dev/null; then
+      sed -i '/related Trellis tasks, research files/a\   - **`spec/guides/reference-analysis/`** — check if the relevant domain already has reference insights from previous tasks. Use these as a starting point for discussion.' "$target"
+      echo "  + Patched $target: reference-analysis check"
+    fi
+  fi
+done
 
 echo "Done. Customizations applied."
 echo ""
 echo "Next steps:"
 echo "  1. Fill .trellis/spec/deps/ with capability sheets for your direct dependencies"
-echo "  2. Reference deps sheets in implement.jsonl/check.jsonl for relevant tasks"
+echo "  2. Fill .trellis/spec/guides/reference-analysis/ with domain files for your reference projects"
+echo "  3. Reference these specs in implement.jsonl/check.jsonl for relevant tasks"
