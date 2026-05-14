@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "id": "general",
+      "type": "spec",
+      "name": "General Project",
+      "description": "Dependency capability sheets + research quality rules. Fits any project with third-party deps.",
+      "path": "marketplace/specs/general",
+      "tags": ["deps", "research", "quality"]
+    },
+    {
+      "id": "browser-agent",
+      "type": "spec",
+      "name": "Browser Agent Project",
+      "description": "General specs + Proactive State Feedback principle for browser automation agents.",
+      "path": "marketplace/specs/browser-agent",
+      "tags": ["browser", "agent", "playwright", "automation", "deps"]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# Thinking Guides (Browser Agent)
+
+> Supplements the default Trellis thinking guides with browser automation principles.
+
+## Available Guides
+
+| Guide | Purpose | When to Use |
+|-------|---------|-------------|
+| [Proactive State Feedback](./proactive-state-feedback.md) | Operations proactively report state changes to the agent | Designing any command, route, or action |
+| [Dependency Sheets](../deps/index.md) | Source-verified capability facts for direct deps | Any task touching dependency behavior |
+
+## Brainstorm Quality Rule
+
+During brainstorm (Phase 1), dispatch research sub-agents to investigate how reference projects handle the modules under discussion **before** making design decisions. This ensures decisions are evidence-backed rather than assumption-based.
+
+For each design decision, present options with evidence from research (competitor implementations, trade-offs in practice). Simple uncontroversial decisions can be batched; complex ones deserve individual discussion.
